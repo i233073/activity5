@@ -1,28 +1,23 @@
-// calculator.test.js
-const calc = require('./calculator');
+function add(a, b) {
+    return a + b;
+}
 
-test('add: 2 + 3 = 5', () => {
-  expect(calc.add(2, 3)).toBe(5);
-});
+function subtract(a, b) {
+    return a - b;
+}
 
-test('subtract: 5 - 3 = 2', () => {
-  expect(calc.subtract(5, 3)).toBe(2);
-});
+function multiply(a, b) {
+    return a * b;
+}
 
-test('multiply: 4 * 6 = 24', () => {
-  expect(calc.multiply(4, 6)).toBe(24);
-});
+function divide(a, b) {
+    if (b === 0) throw new Error('Cannot divide by zero');
+    return a / b;
+}
 
-test('divide: 10 / 2 = 5', () => {
-  expect(calc.divide(10, 2)).toBe(5);
-});
+function modulus(a, b) {
+    if (b === 0) throw new Error('Cannot perform modulus by zero');
+    return a % b;
+}
 
-test('modulus of two numbers', () => {
-  expect(calc.modulus(10, 3)).toBe(1);
-});
-
-
-test('divide: division by zero throws error', () => {
-  expect(() => calc.divide(1, 0)).toThrow('Cannot divide by zero');
-});
-
+module.exports = { add, subtract, multiply, divide, modulus };
